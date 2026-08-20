@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hazem Aich — Ingénieur Full Stack .NET Core &amp; Angular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0D1117;
+    --surface: #151B23;
+    --surface-2: #1C2430;
+    --line: #29323D;
+    --text: #E9EEF3;
+    --text-muted: #8B98A5;
+    --accent: #5EEAD4;
+    --accent-dim: #2E7D6E;
+    --amber: #F0B429;
+    --radius: 10px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  ::selection{background:var(--accent);color:#0D1117;}
+
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,17,23,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .logo{font-family:var(--mono);font-size:14px;color:var(--accent);letter-spacing:0.5px;}
+  .navlinks{display:flex;gap:28px;font-family:var(--mono);font-size:13px;color:var(--text-muted);}
+  .navlinks a{transition:color .2s;}
+  .navlinks a:hover{color:var(--accent);}
+  .nav-cta{
+    font-family:var(--mono);font-size:12px;
+    border:1px solid var(--accent-dim);
+    color:var(--accent);
+    padding:7px 14px;border-radius:6px;
+    transition:background .2s, color .2s;
+  }
+  .nav-cta:hover{background:var(--accent);color:#0D1117;}
+  @media(max-width:640px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:90px 0 70px;position:relative;overflow:hidden;}
+  .hero-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(94,234,212,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(94,234,212,0.05) 1px, transparent 1px);
+    background-size:42px 42px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    pointer-events:none;
+  }
+  .terminal{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  }
+  .term-bar{
+    display:flex;align-items:center;gap:8px;
+    padding:11px 16px;
+    background:var(--surface-2);
+    border-bottom:1px solid var(--line);
+  }
+  .term-dot{width:10px;height:10px;border-radius:50%;}
+  .term-bar span:nth-child(1){background:#FF5F56;}
+  .term-bar span:nth-child(2){background:#FFBD2E;}
+  .term-bar span:nth-child(3){background:#27C93F;}
+  .term-title{
+    margin-left:8px;font-family:var(--mono);font-size:12px;color:var(--text-muted);
+  }
+  .term-body{padding:26px 24px 30px;font-family:var(--mono);font-size:14px;}
+  .term-body .l{white-space:pre-wrap;opacity:0;animation:fadeIn .4s forwards;}
+  .term-body .l1{animation-delay:.1s;}
+  .term-body .l2{animation-delay:.5s;}
+  .term-body .l3{animation-delay:.9s;}
+  .term-body .l4{animation-delay:1.3s;}
+  .term-body .l5{animation-delay:1.7s;}
+  @keyframes fadeIn{to{opacity:1;}}
+  .key{color:#79C0FF;}
+  .str{color:var(--accent);}
+  .com{color:var(--text-muted);}
+  .cursor{
+    display:inline-block;width:8px;height:16px;background:var(--accent);
+    vertical-align:middle;margin-left:2px;
+    animation:blink 1s step-end infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+
+  .hero-name{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(38px, 7vw, 64px);
+    line-height:1.02;
+    margin:34px 0 8px;
+    letter-spacing:-0.5px;
+  }
+  .hero-role{
+    font-family:var(--mono);
+    font-size:15px;
+    color:var(--accent);
+    margin-bottom:22px;
+  }
+  .hero-desc{
+    max-width:560px;color:var(--text-muted);font-size:16px;margin-bottom:30px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono);font-size:13px;
+    padding:11px 20px;border-radius:7px;
+    border:1px solid transparent;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s, background .2s, border-color .2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--accent);color:#0A0F14;font-weight:600;}
+  .btn-primary:hover{background:#7FF2DE;}
+  .btn-ghost{border-color:var(--line);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* ---------- SECTION HEADERS (API endpoint style) ---------- */
+  section{padding:64px 0;border-top:1px solid var(--line);}
+  .endpoint{
+    display:flex;align-items:center;gap:12px;margin-bottom:36px;
+    font-family:var(--mono);
+  }
+  .method{
+    font-size:11px;font-weight:700;padding:4px 9px;border-radius:5px;letter-spacing:0.5px;
+  }
+  .method.get{background:rgba(94,234,212,0.12);color:var(--accent);}
+  .path{font-size:14px;color:var(--text-muted);}
+  h2.section-title{
+    font-family:var(--display);font-size:clamp(24px,4vw,32px);
+    margin-top:6px;font-weight:600;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{
+    display:grid;grid-template-columns:150px 1fr;gap:24px;
+    padding:26px 0;border-bottom:1px solid var(--line);
+  }
+  .job:last-child{border-bottom:none;}
+  .job-period{font-family:var(--mono);font-size:12px;color:var(--text-muted);padding-top:3px;}
+  .job-period .dot{color:var(--accent);}
+  .job-title{font-family:var(--display);font-size:19px;font-weight:600;margin-bottom:2px;}
+  .job-company{color:var(--accent);font-size:14px;margin-bottom:10px;font-family:var(--mono);}
+  .job-mission{color:var(--text-muted);font-size:14.5px;margin-bottom:12px;}
+  .job ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+  .job li{font-size:14.5px;padding-left:18px;position:relative;}
+  .job li::before{
+    content:'▸';position:absolute;left:0;color:var(--accent-dim);
+  }
+  .stack{display:flex;flex-wrap:wrap;gap:7px;}
+  .chip{
+    font-family:var(--mono);font-size:11.5px;
+    background:var(--surface-2);border:1px solid var(--line);
+    color:var(--text-muted);padding:4px 10px;border-radius:20px;
+  }
+  @media(max-width:640px){
+    .job{grid-template-columns:1fr;gap:8px;}
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media(max-width:800px){.projects-grid{grid-template-columns:1fr;}}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;display:flex;flex-direction:column;gap:12px;
+    transition:border-color .2s, transform .2s;
+  }
+  .card:hover{border-color:var(--accent-dim);transform:translateY(-3px);}
+  .card-icon{
+    width:38px;height:38px;border-radius:8px;
+    background:var(--surface-2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--accent);font-family:var(--mono);font-size:15px;font-weight:700;
+  }
+  .card h3{font-family:var(--display);font-size:18px;font-weight:600;}
+  .card-tag{font-family:var(--mono);font-size:11px;color:var(--amber);}
+  .card p{color:var(--text-muted);font-size:14px;flex-grow:1;}
+  .card .stack{margin-top:4px;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 40px;}
+  @media(max-width:640px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-group h4{
+    font-family:var(--mono);font-size:12px;color:var(--text-muted);
+    text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;
+  }
+  .skill-group .stack{gap:8px;}
+  .skill-group .chip{color:var(--text);}
+
+  /* ---------- EDUCATION / LANGS ---------- */
+  .two-col{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr;}}
+  .edu-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-year{font-family:var(--mono);color:var(--accent);font-size:13px;min-width:44px;}
+  .edu-item h4{font-size:15px;font-weight:600;margin-bottom:2px;}
+  .edu-item p{color:var(--text-muted);font-size:13.5px;}
+
+  .lang-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .lang-row:last-child{border-bottom:none;}
+  .lang-level{font-family:var(--mono);font-size:12px;color:var(--accent);}
+
+  .strength{margin-top:26px;}
+  .strength-item{margin-bottom:14px;}
+  .strength-item h4{font-size:14px;font-weight:600;margin-bottom:3px;color:var(--accent);}
+  .strength-item p{font-size:13.5px;color:var(--text-muted);}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{padding:70px 0 40px;border-top:1px solid var(--line);text-align:center;}
+  footer .term-title-lg{
+    font-family:var(--mono);font-size:13px;color:var(--text-muted);margin-bottom:10px;
+  }
+  footer h2{font-family:var(--display);font-size:clamp(26px,5vw,40px);margin-bottom:26px;font-weight:700;}
+  .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:50px;}
+  footer .bottom{font-family:var(--mono);font-size:12px;color:var(--text-muted);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">hazem.aich <span style="color:var(--text-muted)">/&gt;</span></div>
+    <div class="navlinks">
+      <a href="#experience">expérience</a>
+      <a href="#projects">projets</a>
+      <a href="#skills">compétences</a>
+      <a href="#education">formation</a>
+    </div>
+    <a href="#contact" class="nav-cta">contact()</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="terminal">
+      <div class="term-bar">
+        <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+        <span class="term-title">profile.json — zsh</span>
+      </div>
+      <div class="term-body">
+        <div class="l l1">$ whoami</div>
+        <div class="l l2"><span class="key">const</span> dev = &#123;</div>
+        <div class="l l3">&nbsp;&nbsp;role: <span class="str">"Ingénieur Full Stack .NET Core &amp; Angular"</span>,</div>
+        <div class="l l4">&nbsp;&nbsp;experience: <span class="str">"3+ ans"</span>, <span class="com">// WBconcept, Rosenberger</span></div>
+        <div class="l l5">&#125;<span class="cursor"></span></div>
+      </div>
+    </div>
+
+    <h1 class="hero-name">Hazem AICH</h1>
+    <div class="hero-role">Ingénieur en Développement Full Stack — .NET Core &amp; Angular</div>
+    <p class="hero-desc">Je conçois et développe des applications web robustes pour des clients français et tunisiens : APIs RESTful sécurisées, interfaces Angular performantes, déploiement continu. Basé en Tunisie, habitué aux équipes internationales (France, Allemagne, Hongrie).</p>
+    <div class="hero-actions">
+      <a href="mailto:Hazem.aaich@gmail.com" class="btn btn-primary">✉ Me contacter</a>
+      <a href="https://linkedin.com/in/hazem-aich" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      <a href="tel:+21624570545" class="btn btn-ghost">+216 24 570 545</a>
+    </div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="endpoint">
+      <span class="method get">GET</span><span class="path">/experience</span>
+    </div>
+    <h2 class="section-title">Expériences professionnelles</h2>
+    <div style="margin-top:32px;">
+
+      <div class="job">
+        <div class="job-period">Depuis <span class="dot">●</span><br>Nov. 2024</div>
+        <div>
+          <div class="job-title">Ingénieur en Développement Full Stack</div>
+          <div class="job-company">WBconcept — Tunisie / France</div>
+          <p class="job-mission">Développement d'applications web dynamiques avec Angular et .NET Core pour des clients français et tunisiens. Rôle central dans l'intégration d'APIs, la gestion d'état et le déploiement continu via Azure DevOps.</p>
+          <ul>
+            <li>Développement de modules fonctionnels en Angular et TypeScript</li>
+            <li>Développement d'API RESTful avec .NET Core, services backend et endpoints sécurisés</li>
+            <li>Gestion de l'état applicatif avec RxJS</li>
+            <li>Optimisation des performances backend (requêtes EF Core, caching)</li>
+            <li>Déploiement continu via Azure DevOps (CI/CD), TMA et corrections de bugs</li>
+            <li>Refonte d'interfaces Angular et usage de l'IA (Claude) pour accélérer le code et la documentation</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">RxJS</span>
+            <span class="chip">.NET Core</span><span class="chip">Angular Material</span><span class="chip">Azure DevOps</span>
+            <span class="chip">REST API</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-period">Août 2022<br>— Oct. 2024</div>
+        <div>
+          <div class="job-title">Ingénieur en Développement</div>
+          <div class="job-company">Rosenberger — Tunisie / Allemagne</div>
+          <p class="job-mission">Développement de solutions logicielles et conduite de tests fonctionnels dans un environnement industriel international.</p>
+          <ul>
+            <li>Développement de projets en intelligence artificielle pour renforcer les capacités techniques</li>
+            <li>Applications full stack internes (Angular + .NET Core), APIs RESTful en C#</li>
+            <li>Modélisation de bases de données (MySQL, PostgreSQL)</li>
+            <li>Développement d'une plateforme de gestion des stocks</li>
+            <li>Maintenance évolutive, tests fonctionnels, corrections de bugs</li>
+            <li>Formation des équipes en Allemagne et en Hongrie, rédaction de documentation technique</li>
+          </ul>
+          <div class="stack">
+            <span class="chip">Angular</span><span class="chip">C++</span><span class="chip">Python</span>
+            <span class="chip">PyTorch</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span>
+            <span class="chip">REST API</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="endpoint">
+      <span class="method get">GET</span><span class="path">/projects</span>
+    </div>
+    <h2 class="section-title">Projets réalisés</h2>
+    <div class="projects-grid" style="margin-top:32px;">
+
+      <div class="card">
+        <div class="card-icon">RS</div>
+        <span class="card-tag">Restauration</span>
+        <h3>Plateforme de restauration</h3>
+        <p>Application de gestion pour le secteur de la restauration : prise de commandes, suivi et administration, pensée pour fluidifier l'exploitation au quotidien.</p>
+        <div class="stack">
+          <span class="chip">Angular</span><span class="chip">.NET Core</span><span class="chip">REST API</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">FT</div>
+        <span class="card-tag">Transport · France</span>
+        <h3>Flex Transport</h3>
+        <p>Application de gestion de transport, hébergée et utilisée en production en France. Gestion des flux opérationnels avec une architecture backend/frontend sécurisée.</p>
+        <div class="stack">
+          <span class="chip">Angular</span><span class="chip">.NET Core</span><span class="chip">Azure DevOps</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">FL</div>
+        <span class="card-tag">Vitrine &amp; Gestion</span>
+        <h3>Floova</h3>
+        <p>Site vitrine couplé à un module de gestion d'entreprise : présentation de l'activité côté public et outils d'administration côté back-office.</p>
+        <div class="stack">
+          <span class="chip">Angular</span><span class="chip">.NET Core</span><span class="chip">TypeScript</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="endpoint">
+      <span class="method get">GET</span><span class="path">/skills</span>
+    </div>
+    <h2 class="section-title">Compétences techniques</h2>
+    <div class="skills-grid" style="margin-top:32px;">
+
+      <div class="skill-group">
+        <h4>Frameworks &amp; bibliothèques</h4>
+        <div class="stack">
+          <span class="chip">Angular</span><span class="chip">.NET Core</span><span class="chip">Spring Boot</span>
+          <span class="chip">Bootstrap</span><span class="chip">JHipster</span><span class="chip">NodeJS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Langages</h4>
+        <div class="stack">
+          <span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">HTML/CSS</span>
+          <span class="chip">Java</span><span class="chip">C++</span><span class="chip">Python</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Bases de données</h4>
+        <div class="stack">
+          <span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Firebase</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>CI/CD &amp; outils</h4>
+        <div class="stack">
+          <span class="chip">Azure DevOps</span><span class="chip">Git</span><span class="chip">GitHub</span>
+          <span class="chip">VS Code</span><span class="chip">IntelliJ IDEA</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Intelligence artificielle</h4>
+        <div class="stack">
+          <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">Data Modeling</span><span class="chip">Feature Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>IA &amp; productivité</h4>
+        <div class="stack">
+          <span class="chip">Claude</span><span class="chip">Copilot</span><span class="chip">ChatGPT</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="endpoint">
+      <span class="method get">GET</span><span class="path">/education</span>
+    </div>
+    <h2 class="section-title">Formation &amp; profil</h2>
+    <div class="two-col" style="margin-top:32px;">
+
+      <div>
+        <div class="edu-item">
+          <div class="edu-year">2022</div>
+          <div>
+            <h4>Diplôme National d'Ingénieur</h4>
+            <p>Institut Supérieur d'Informatique et des Technologies de Communication — Hammam Sousse</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2019</div>
+          <div>
+            <h4>Licence Appliquée en Réseaux Informatiques</h4>
+            <p>ISMAI — Kairouan</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2016</div>
+          <div>
+            <h4>Baccalauréat</h4>
+            <p>Lycée Enfida — Sousse</p>
+          </div>
+        </div>
+
+        <div class="strength">
+          <div class="strength-item">
+            <h4>Leadership</h4>
+            <p>Chef d'équipe — Nuit de l'Info, formateur ISMAI.</p>
+          </div>
+          <div class="strength-item">
+            <h4>Résolution de problèmes</h4>
+            <p>Cadres personnalisés ayant augmenté le taux de résolution de 70% et amélioré la productivité.</p>
+          </div>
+          <div class="strength-item">
+            <h4>Mobilité internationale</h4>
+            <p>Expériences en Hongrie et en Allemagne, à l'aise en contexte multiculturel.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-family:var(--mono);font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Langues</h4>
+        <div class="lang-row"><span>Arabe</span><span class="lang-level">langue maternelle</span></div>
+        <div class="lang-row"><span>Français</span><span class="lang-level">B2 avancé</span></div>
+        <div class="lang-row"><span>Anglais</span><span class="lang-level">B2 avancé</span></div>
+        <div class="lang-row"><span>Allemand</span><span class="lang-level">B1</span></div>
+
+        <h4 style="font-family:var(--mono);font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin:28px 0 14px;">Responsabilités</h4>
+        <div class="lang-row"><span>Nuit de l'Info — Chef d'équipe</span><span class="lang-level">2021</span></div>
+        <div class="lang-row"><span>Nuit de l'Info — Membre</span><span class="lang-level">2019</span></div>
+        <div class="lang-row"><span>ISMAI — Formateur</span><span class="lang-level">2018</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="term-title-lg">POST /contact</div>
+    <h2>Discutons de votre projet.</h2>
+    <div class="contact-links">
+      <a href="mailto:Hazem.aaich@gmail.com" class="btn btn-primary">✉ Hazem.aaich@gmail.com</a>
+      <a href="tel:+21624570545" class="btn btn-ghost">📞 +216 24 570 545</a>
+      <a href="https://linkedin.com/in/hazem-aich" target="_blank" class="btn btn-ghost">in/hazem-aich ↗</a>
+    </div>
+    <div class="bottom">© 2026 Hazem Aich — construit avec Angular energy &amp; .NET Core precision.</div>
+  </div>
+</footer>
+
+</body>
+</html>
