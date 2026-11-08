@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="descaiption" content="Portfolio de Hazem Aich, ingénieur logiciel spécialisé en développement Full Stack .NET Core et Angular.">
+  <meta name="description" content="Portfolio de Hazem Aich, ingénieur logiciel spécialisé en développement Full Stack .NET Core et Angular.">
   <meta name="theme-color" content="#0b1020">
   <title>Hazem Aich — Full Stack Developer | .NET & Angular</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,7 +70,8 @@
     .hero-meta b { color: var(--text); font-weight: 600; }
     .profile-card { position: relative; padding: 28px; border: 1px solid var(--line); border-radius: 28px; background: linear-gradient(145deg, rgba(31,43,72,.9), rgba(17,25,44,.75)); box-shadow: 0 25px 80px rgba(0,0,0,.25); }
     .profile-orbit { width: 190px; height: 190px; margin: 5px auto 22px; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 35% 30%, #b8b0ff, #7568e8 48%, #26375b 75%); box-shadow: 0 0 0 12px rgba(139,124,255,.08), 0 0 65px rgba(139,124,255,.25); }
-    .profile-orbit span { font-size: 56px; font-weight: 800; letter-spacing: -.08em; color: white; }
+    .profile-orbit { overflow:hidden; border:4px solid rgba(139,124,255,.45); }
+    .profile-orbit img { width:100%; height:100%; object-fit:cover; object-position:center 35%; display:block; }
     .profile-card h3 { text-align: center; font-size: 19px; }
     .profile-card > p { text-align: center; color: var(--muted); font-size: 12px; margin: 4px 0 22px; }
     .profile-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -176,7 +177,7 @@
             <p class="eyebrow">Bonjour, je suis</p>
             <h1>Hazem <span class="gradient-text">Aich.</span></h1>
             <div class="hero-role">INGÉNIEUR LOGICIEL · FULL STACK .NET & ANGULAR</div>
-            <p class="hero-copy">Je conçois et développe des applications web, des API REST et des interfaces modernes. J'aime transformer des besoins métier en solutions fiables, maintenables et simples à utiliser.</p>
+            <p class="hero-copy">Ingénieur Full Stack avec 4 ans d’expérience dans la conception d’applications web d’entreprise pour des clients et équipes en France et en Allemagne. Spécialisé dans les API REST sécurisées, l’optimisation des performances et l’intégration d’agents IA dans le cycle de développement.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#experience">Découvrir mon parcours ↓</a>
               <a class="btn btn-secondary" href="mailto:Hazem.aaich@gmail.com">✉ Me contacter</a>
@@ -188,9 +189,9 @@
             </div>
           </div>
           <aside class="profile-card reveal" aria-label="Résumé du profil">
-            <div class="profile-orbit"><span>HA</span></div>
+            <div class="profile-orbit"><img src="data:image/png;base64,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" alt="Photo professionnelle de Hazem Aich"></div>
             <h3>Hazem Aich</h3>
-            <p>Software Engineer · Full Stack Developer</p>
+            <p>Ingénieur Full Stack · Développement accéléré par agents IA</p>
             <div class="profile-facts">
               <div class="fact"><strong>.NET</strong><small>Backend & API</small></div>
               <div class="fact"><strong>Angular</strong><small>Frontend</small></div>
@@ -228,7 +229,7 @@
           <article class="experience-item reveal">
             <span class="timeline-dot"></span>
             <div class="experience-card">
-              <div class="experience-top"><div><h3>Développeur Full Stack</h3><div class="company">WBconcept · Tunisie / projets clients français</div></div><div class="period">JAN. 2025 — AUJOURD'HUI</div></div>
+              <div class="experience-top"><div><h3>Développeur Full Stack</h3><div class="company">WBconcept · Tunisie / projets clients français</div></div><div class="period">NOV. 2024 — AUJOURD'HUI</div></div>
               <p>Conception, évolution et maintenance d'applications web métier avec Angular et .NET Core.</p>
               <ul>
                 <li>Développement de composants, formulaires et modules fonctionnels avec Angular et TypeScript.</li>
@@ -245,31 +246,43 @@
           <article class="experience-item reveal">
             <span class="timeline-dot"></span>
             <div class="experience-card">
-              <div class="experience-top"><div><h3>Développeur Full Stack</h3><div class="company">FPS KASA · Tunisie</div></div><div class="period">OCT. 2024 — JAN. 2025</div></div>
-              <p>Participation au développement d'applications web full stack et à l'intégration de leurs services.</p>
+              <div class="experience-top"><div><h3>Développeur Full Stack</h3><div class="company">FPS KASA · Tunisie</div></div><div class="period">OCT. 2024 — JANV. 2025</div></div>
+              <p>Développement et intégration de fonctionnalités web côté frontend et backend pour des applications métier.</p>
               <ul>
-                <li>Développement d'interfaces web avec Angular.</li>
-                <li>Développement backend et services avec Node.js et .NET Core.</li>
-                <li>Gestion et manipulation des données avec MongoDB.</li>
-                <li>Intégration et tests des API avec Postman.</li>
+                <li>Développement d'interfaces utilisateur et de composants avec Angular.</li>
+                <li>Développement de fonctionnalités backend avec Node.js et .NET Core.</li>
+                <li>Manipulation et gestion des données avec MongoDB.</li>
+                <li>Intégration et vérification des API REST avec Postman.</li>
+                <li>Correction de bugs et participation à l'évolution des fonctionnalités de l'application.</li>
               </ul>
-              <div class="tags"><span class="tag">Angular</span><span class="tag">Node.js</span><span class="tag">.NET Core</span><span class="tag">MongoDB</span><span class="tag">Postman</span></div>
+              <div class="tags"><span class="tag">Angular</span><span class="tag">Node.js</span><span class="tag">.NET Core</span><span class="tag">MongoDB</span><span class="tag">REST API</span><span class="tag">Postman</span></div>
             </div>
           </article>
 
           <article class="experience-item reveal">
             <span class="timeline-dot"></span>
             <div class="experience-card">
-              <div class="experience-top"><div><h3>Ingénieur méthodes / environnement industriel</h3><div class="company">Rosenberger · Tunisie / projets Allemagne & Hongrie</div></div><div class="period">AOÛT 2022 — OCT. 2023</div></div>
-              <p>Contribution aux activités méthodes, aux contrôles techniques et au transfert de processus dans le secteur automobile.</p>
+              <div class="experience-top"><div><h3>Ingénieur Développement</h3><div class="company">Rosenberger · Tunisie / Allemagne</div></div><div class="period">AOÛT 2022 — OCT. 2024</div></div>
+              <p>Développement de solutions logicielles et conduite de tests fonctionnels dans un environnement industriel international.</p>
               <ul>
-                <li>Participation à l'industrialisation et au suivi de procédés de fabrication de câbles et faisceaux automobiles.</li>
-                <li>Utilisation de systèmes de contrôle et d'inspection, notamment PLC et caméras Cognex.</li>
-                <li>Participation aux contrôles électriques, tests haute tension et opérations de calibration.</li>
-                <li>Contribution au transfert de projets et à la formation d'équipes en Allemagne et en Hongrie.</li>
-                <li>Rédaction et partage de documentation technique dans un environnement international.</li>
+                <li>Pilotage de projets d'intelligence artificielle avec Python et PyTorch pour renforcer les capacités techniques de l'équipe.</li>
+                <li>Conception et développement d'applications full stack internes avec Angular et .NET Core, ainsi que d'APIs RESTful en C#.</li>
+                <li>Développement d'une plateforme de gestion des stocks et modélisation des bases de données associées avec MySQL et PostgreSQL.</li>
+                <li>Maintenance évolutive et corrective, tests fonctionnels, correction de bugs et optimisation des performances.</li>
               </ul>
-              <div class="tags"><span class="tag">PLC</span><span class="tag">Cognex</span><span class="tag">Inspection caméra</span><span class="tag">Tests électriques</span><span class="tag">High Voltage</span><span class="tag">Calibration</span></div>
+              <div class="tags"><span class="tag">Angular</span><span class="tag">.NET Core</span><span class="tag">C#</span><span class="tag">REST API</span><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span></div>
+            </div>
+          </article>
+
+          <article class="experience-item reveal">
+            <span class="timeline-dot"></span>
+            <div class="experience-card">
+              <div class="experience-top"><div><h3>Stagiaire Développement Web</h3><div class="company">NetOps · Tunisie</div></div><div class="period">JUIL. 2021 — AOÛT 2021</div></div>
+              <p>Mise en place et supervision d'une solution de monitoring réseau dans un environnement virtualisé.</p>
+              <ul>
+                <li>Mise en place et supervision d'une solution Observium sur VMware avec SNMP.</li>
+              </ul>
+              <div class="tags"><span class="tag">Observium</span><span class="tag">VMware</span><span class="tag">SNMP</span></div>
             </div>
           </article>
         </div>
@@ -319,7 +332,7 @@
             <div class="language-row"><span>Arabe</span><span>Langue maternelle</span></div>
             <div class="language-row"><span>Français</span><span>Courant</span></div>
             <div class="language-row"><span>Anglais</span><span>Courant</span></div>
-            <div class="language-row"><span>Allemand</span><span>B1 · B2 en cours</span></div>
+            <div class="language-row"><span>Allemand</span><span>Intermédiaire</span></div>
             <p class="eyebrow" style="margin:26px 0 8px">Atouts</p>
             <p style="font-size:12px;color:var(--muted)">Analyse · Autonomie · Esprit d'équipe · Résolution de problèmes · Adaptabilité internationale</p>
           </div>
